@@ -322,4 +322,5 @@ a reverse order.
 ```
 You can pass this module without doing exercise 02.
 ```
-
+[![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)

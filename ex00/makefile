@@ -6,14 +6,14 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:33:26 by tpereira          #+#    #+#              #
-#    Updated: 2022/12/28 14:39:59 by tpereira         ###   ########.fr        #
+#    Updated: 2022/12/28 14:43:53 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG		= megaphone
 CC			= g++
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
-SRCS		= megaphone.cpp
+SRCS		= ./srcs/megaphone.cpp
 
 all :
 	@$(CC) $(CFLAGS) $(SRCS) -o $(PROG)
