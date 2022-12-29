@@ -6,20 +6,13 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:16:59 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 10:46:37 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/12/29 11:54:47 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-
-
-
-// class PhoneBook {
-// 	private:
-// 		Contact entry[8];
-
-// 	PhoneBook
-// };
+#include <iomanip> //stream manipulator - ex: UPPERCASE ??
+#include "../includes/PhoneBook.class.hpp"
 
 void	showMenu() {
 	std::cout << std::endl
@@ -36,7 +29,7 @@ void	showMenu() {
 
 int	main(void)
 {
-	// PhoneBook	phonebook;
+	PhoneBook	phonebook;
 	std::string option;
 
 	// check/search/show contacts
@@ -65,6 +58,6 @@ int	main(void)
 		}
 	}
 	system("clear");
-	std::cout << "Thanks for using the best PhoneBook in the Universe!" << std::endl;
+	std::cout << "\n\n\t\t\t Thanks for using the best PhoneBook in the Universe!\n\n" << std::endl;
 	return (0);
 }
