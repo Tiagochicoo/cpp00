@@ -6,15 +6,15 @@
 #    By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/28 12:33:26 by tpereira          #+#    #+#              #
-#    Updated: 2022/12/28 14:45:56 by tpereira         ###   ########.fr        #
+#    Updated: 2022/12/28 16:25:22 by tpereira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 PROG		= phonebook
 CC			= g++
 CFLAGS		= -Wall -Wextra -Werror -g -std=c++98
-SRCS		= ./srcs/phonebook.cpp
-INC			= ./includes/phonebook.hpp
+SRCS		= ./srcs/*.cpp
+INC			= ./includes/PhoneBook.class.hpp
 
 all :
 	@$(CC) $(CFLAGS) $(SRCS) -o $(PROG)
