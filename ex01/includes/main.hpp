@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.class.hpp                                :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/29 11:07:23 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 11:54:55 by tpereira         ###   ########.fr       */
+/*   Created: 2022/12/29 14:36:46 by tpereira          #+#    #+#             */
+/*   Updated: 2022/12/29 17:30:41 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
 # include <iostream>
-# include <string>
-# include "./Contact.class.hpp"
+# include <iomanip>
+# include "./PhoneBook.hpp"
+# include "./Contact.hpp"
 
-class PhoneBook
-{
-	private:
-		Contact	contacts[8];
+std::string getInput(std::string field);
 
-	public:
-
-		PhoneBook();
-		~PhoneBook();
-
-
-};
-
-#endif /* ******************************************************* PHONEBOOK_H */
+#endif /* ********************************************************** MAIN_HPP */
