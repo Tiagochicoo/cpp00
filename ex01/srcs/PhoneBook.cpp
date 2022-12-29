@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:07:28 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 19:28:37 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:34:52 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ PhoneBook::~PhoneBook(void)				// delete all contacts (free memory)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-// PRIVATE METHODS
+// PRIVATE METHODS (_method_name)
 
 void	PhoneBook::_setContact(Contact *contact)
 {
@@ -106,7 +106,18 @@ void	PhoneBook::_printPhoneBook(void) const
 void	PhoneBook::_printContact(Contact *contact, int index) const
 {
 	std::string input;
-	
+	std::string first;
+	std::string last;
+	std::string nick;
+	std::string phone;
+	std::string darkest;
+
+	first = contact->getFirstName();
+	last = contact->getLastName();
+	nick = contact->getNickName();
+	phone = contact->getPhoneNumber();
+	darkest = contact->getDarkestSecret();
+
 	system("clear");
 	std::cout << "\n\t*————————————————————————CONTACT————————————————————————*" << std::endl
 			  << "\t|                                                       |" << std::endl
@@ -116,15 +127,25 @@ void	PhoneBook::_printContact(Contact *contact, int index) const
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
 			  << "\t|     |  Index         |  " << std::setw(23) << index << " |     |" << std::endl
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
-			  << "\t|     |  First Name    |  " << std::setw(23) << contact->getFirstName() << " |     |" << std::endl
+			  << "\t|     |  First Name    |  "; (first.length() > 23 ?
+				std::cout << std::setw(23) << first.substr(0, 22) + ". |     |" :
+				std::cout << std::setw(23) << first << " |     |") << std::endl
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
-			  << "\t|     |  Last Name     |  " << std::setw(23) << contact->getLastName() << " |     |" << std::endl
+			  << "\t|     |  Last Name     |  "; (last.length() > 23 ?
+				std::cout << std::setw(23) << last.substr(0, 22) + ". |     |" :
+				std::cout << std::setw(23) << last << " |     |") << std::endl
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
-			  << "\t|     |  Nickname      |  " << std::setw(23) << contact->getNickName() << " |     |" << std::endl
+			  << "\t|     |  Nickname      |  "; (nick.length() > 23 ?
+				std::cout << std::setw(23) << nick.substr(0, 22) + ". |     |" :
+				std::cout << std::setw(23) << nick << " |     |") << std::endl
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
-			  << "\t|     |  Phone Number  |  " << std::setw(23) << contact->getPhoneNumber() << " |     |" << std::endl
+			  << "\t|     |  Phone Number  |  "; (phone.length() > 23 ?
+				std::cout << std::setw(23) << phone.substr(0, 22) + ". |     |" :
+				std::cout << std::setw(23) << phone << " |     |") << std::endl
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
-			  << "\t|     |  Darkest Secret|  " << std::setw(23) << contact->getDarkestSecret() << " |     |" << std::endl
+			  << "\t|     |  Darkest Secret|  "; (darkest.length() > 23 ?
+				std::cout << std::setw(23) << darkest.substr(0, 22) + ". |     |" :
+				std::cout << std::setw(23) << darkest << " |     |") << std::endl
 			  << "\t|     └————————————————┴——————————————————————————┘     |" << std::endl
 			  << "\t|                                                       |" << std::endl
 			  << "\t|                                                       |" << std::endl
@@ -134,7 +155,7 @@ void	PhoneBook::_printContact(Contact *contact, int index) const
 	if (input == "y" || input == "Y")
 		this->searchContact();
 	else if (input != "n" && input != "N")
-		std::cout << "\t Invalid input. Exiting..." << std::endl;	
+		std::cout << "\t Invalid input. Exiting..." << std::endl;
 }
 
 // PUBLIC METHODS
@@ -174,7 +195,8 @@ void	PhoneBook::addContact()
 		else if (input != "n" && input != "N")
 		{
 			system("clear");
-			std::cout << "\t\t\tInvalid input!" << std::endl;
+			std::cout << "\t\t\tInvalid input! Quitting..." << std::endl;
+			usleep(3000000);
 		}
 		system("clear");
 	}
@@ -184,6 +206,7 @@ void	PhoneBook::addContact()
 void	PhoneBook::searchContact() const
 {
 	std::string input;
+	int			option;
 	int			index;
 
 	system("clear");
@@ -200,24 +223,28 @@ void	PhoneBook::searchContact() const
 	_printPhoneBook();											// print the phonebook
 	index = -1;
 	std::cout << std::endl << "\n\t\t\t\tEnter index: ";		// ask for the index
-	std::getline(std::cin, input);
-	index = std::stoi(input) - 1;								// convert the input to int
+	std::cin >> option;
+	if (!std::cin.good() || std::cin.get() != '\n')
+	{
+		std::cin.clear();
+		while (std::cin.get() != '\n')
+			;
+		std::cout << "\t\t\t\tInvalid input! Try again: ";
+	}
+	index = option;								// convert the option to int
 	if (index >= 0 && index < 8 && _contacts[index] != NULL)
 		_printContact(_contacts[index], index); 				// print the selected contact
 	else
+	{
 		std::cout << "Invalid index!" << std::endl;
+		usleep(3000000);
+		searchContact();
+	}
 }
-
-
-
-
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
-
-
-
 
 
 /* ************************************************************************** */

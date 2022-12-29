@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:36:46 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 17:30:41 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/12/29 22:02:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <iomanip>
+# include <unistd.h>
+# include <limits.h>
 # include "./PhoneBook.hpp"
 # include "./Contact.hpp"
 

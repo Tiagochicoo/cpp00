@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:16:59 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 19:24:11 by tpereira         ###   ########.fr       */
+/*   Updated: 2022/12/29 21:44:33 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ int	main(void)
 		else if (cmd != "EXIT")
 		{
 			system("clear");
-			std::cout << "\n\n\t   Invalid command. Please enter a valid command: " << std::endl;
+			std::cout << "\n\n\t   Invalid command. Please enter a valid command! " << std::endl;
+			usleep(2000000);
 		}
 	}
 	system("clear");
