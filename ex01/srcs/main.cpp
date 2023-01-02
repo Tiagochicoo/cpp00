@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:16:59 by tpereira          #+#    #+#             */
-/*   Updated: 2023/01/02 12:36:54 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/01/02 12:50:08 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ int	main(void)
 			phonebook.addContact();
 		else if (cmd == "SEARCH")
 			phonebook.searchContact();
+		if (cmd == "EXIT")
+		{
+			
+		}
 		else if (cmd != "EXIT")
 		{
 			showMenu();

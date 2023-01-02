@@ -6,7 +6,7 @@
 /*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:07:28 by tpereira          #+#    #+#             */
-/*   Updated: 2023/01/02 12:37:42 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/01/02 12:44:09 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	PhoneBook::_printContact(Contact *contact, int index) const
 			  << "\t|     ┌————————————————┬——————————————————————————┐     |" << std::endl
 			  << "\t|     |  Field         |  Details                 |     |" << std::endl
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
-			  << "\t|     |  Index         |  " << std::setw(23) << index << " |     |" << std::endl
+			  << "\t|     |  Index         |  " << std::setw(23) << (index + 1)  << " |     |" << std::endl
 			  << "\t|     ├————————————————┼——————————————————————————┤     |" << std::endl
 			  << "\t|     |  First Name    |  "; (first.length() > 23 ?
 				std::cout << std::setw(23) << first.substr(0, 22) + ". |     |" :
@@ -194,9 +194,8 @@ void	PhoneBook::addContact()
 			addContact();
 		else if (input != "n" && input != "N")
 		{
-			system("clear");
 			std::cout << "\t\t\tInvalid input! Quitting..." << std::endl;
-			usleep(3000000);
+			usleep(2000000);
 		}
 		system("clear");
 	}
