@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:07:23 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 17:30:49 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/01/02 12:34:15 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class PhoneBook								// Class
 		PhoneBook();						// Constructor
 		~PhoneBook();						// Destructor
 
-		void	addContact(void);			// Method
+		void	addContact(void);			// Methods
 		void	searchContact(void) const;
 
 };

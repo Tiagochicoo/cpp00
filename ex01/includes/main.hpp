@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 14:36:46 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 22:02:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/01/02 12:05:37 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <iomanip>
 # include <unistd.h>
 # include <limits.h>
+#include  <stdlib.h>
 # include "./PhoneBook.hpp"
 # include "./Contact.hpp"
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 11:07:28 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 22:34:52 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/01/02 12:37:42 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,40 +205,39 @@ void	PhoneBook::addContact()
 
 void	PhoneBook::searchContact() const
 {
-	std::string input;
-	int			option;
+	std::string	input;
 	int			index;
 
 	system("clear");
-	if (_index == 0) 											// if the phonebook is empty
+	if (_index == 0) 												// if the phonebook is empty
 	{
 		std::cout << "\t\t\t\t\tYour PhoneBook is empty!\n" << std::endl;
-		std::cout << "\t\t\t\t    Would you like to add a contact?" << std::endl;
-		std::cout << "\t\t\tEnter \"y\" to add a contact or anything else to exit: ";
-		std::getline(std::cin, input);
-		if (input == "y" || input == "Y")
-			PhoneBook().addContact();
+		std::cout << "\t\tPlease add a contact before using this option" << std::endl;
+		
 		return ;
 	}
-	_printPhoneBook();											// print the phonebook
+	_printPhoneBook();												// print the phonebook
 	index = -1;
-	std::cout << std::endl << "\n\t\t\t\tEnter index: ";		// ask for the index
-	std::cin >> option;
-	if (!std::cin.good() || std::cin.get() != '\n')
+	while (1)
 	{
-		std::cin.clear();
-		while (std::cin.get() != '\n')
-			;
-		std::cout << "\t\t\t\tInvalid input! Try again: ";
-	}
-	index = option;								// convert the option to int
-	if (index >= 0 && index < 8 && _contacts[index] != NULL)
-		_printContact(_contacts[index], index); 				// print the selected contact
-	else
-	{
-		std::cout << "Invalid index!" << std::endl;
-		usleep(3000000);
-		searchContact();
+		std::cout << std::endl << "\n\t\t\t\tEnter index: ";		// ask for the index
+		std::getline(std::cin, input);
+		if (input.length() == 1 && isdigit(input[0]))									// check if the input is 1 char
+		{
+			index = (input[0] - '0') - 1;
+			if (index < _index && index >= 0 && index < 8 && _contacts[index] != NULL)
+			{
+				_printContact(_contacts[index], index); 				// print the selected contact
+				break ;
+			}
+			_printPhoneBook();
+			std::cout << "\n\t\tInvalid index! Please enter a valid index" << std::endl;
+		}
+		else
+		{
+			_printPhoneBook();
+			std::cout << "\n\t\t\tInvalid input! Try again." << std::endl;
+		}
 	}
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpereira <tpereira@42Lisboa.com>           +#+  +:+       +#+        */
+/*   By: tpereira <tpereira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 16:16:59 by tpereira          #+#    #+#             */
-/*   Updated: 2022/12/29 21:44:33 by tpereira         ###   ########.fr       */
+/*   Updated: 2023/01/02 12:36:54 by tpereira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ int	main(void)
 
 	system("clear");
 	std::cout	<< "\n\n\t   Welcome to the best PhoneBook in the Universe!" << std::endl;
+	showMenu();
 	while (cmd != "EXIT")
 	{
-		showMenu();
+		if (cmd != "")
+			showMenu();
 		std::cout << "\n\t\t\tEnter command: ";
 		std::getline(std::cin, cmd);
 		if (cmd == "ADD")
@@ -64,9 +66,9 @@ int	main(void)
 			phonebook.searchContact();
 		else if (cmd != "EXIT")
 		{
-			system("clear");
+			showMenu();
 			std::cout << "\n\n\t   Invalid command. Please enter a valid command! " << std::endl;
-			usleep(2000000);
+			cmd = "";
 		}
 	}
 	system("clear");
